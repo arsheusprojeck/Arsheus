@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Konfirmasi Pembayaran • Arsheus Marketplace</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050305;
+      --card-bg: #151419;
+      --accent: #dcd6ff;
+      --purple1: #8b4fff;
+      --purple2: #b66cff;
+      --neon: rgba(139,79,255,0.24);
+      --muted: #bdb9bf;
+      --white: #ffffff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    header h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--purple1);
+      text-shadow: 0 0 12px var(--neon);
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid rgba(255,255,255,0.03);
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+      padding: 24px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    .card h2 {
+      font-size: 1.3rem;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 16px;
+    }
+    .qr-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .qr-container img {
+      border-radius: 8px;
+      box-shadow: 0 0 12px var(--neon);
+      max-width: 200px;
+      width: 100%;
+      height: auto;
+    }
+    .qr-link {
+      display: inline-block;
+      background: linear-gradient(180deg, var(--purple1), var(--purple2));
+      color: var(--white);
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      box-shadow: 0 6px 20px var(--neon);
+      text-decoration: none;
+      margin-bottom: 16px;
+      transition: transform 0.18s, box-shadow 0.18s;
+    }
+    .qr-link:hover {
+      transform: translateY(-3px);
+    }
+    .btn-group {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-top: 12px;
+    }
+    .btn {
+      flex: 1;
+      padding: 12px 0;
+      font-weight: 700;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.18s, transform 0.18s;
+    }
+    .btn-wa {
+      background: #25d366;
+      color: #000;
+    }
+    .btn-tele {
+      background: #0088cc;
+      color: #fff;
+    }
+    .btn:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Konfirmasi Pembayaran</h1>
+    </header>
+
+
+    <div class="card">
+      <h2>Pembayaran via QR All Payment dan dana</h2>
+      <p>Klik tombol di bawah untuk langsung melakukan pembayaran atau scan QR melalui aplikasi.</p>
+      <div class="qr-container">
+        <img src="https://files.catbox.moe/xtqenu.jpg" alt="QR Code All Payment" />
+      </div>
+      <a href="https://link.dana.id/minta/2whdmz3gsub" target="_blank" class="qr-link">Bayar Sekarang • DANA</a>
+    </div>
+
+    <div class="card">
+      <h2>Upload Bukti & Konfirmasi</h2>
+      <p>Upload gambar bukti transfer terlebih dahulu, lalu konfirmasi melalui WhatsApp atau Telegram.</p>
+      <input type="file" id="bukti" accept="image/*" style="display: none;" />
+      <label for="bukti" style="display:inline-block; margin-bottom: 12px; cursor: pointer;
+             background: var(--purple1); padding: 8px 16px; border-radius: 8px; font-weight: 600;">
+        Pilih File Bukti
+      </label>
+      <div id="filename" style="color: var(--muted); font-size: 0.9rem; margin-bottom: 16px;">
+        Belum ada file dipilih.
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-wa" onclick="konfirmasi('wa')">Konfirmasi via WhatsApp</button>
+        <button class="btn btn-tele" onclick="konfirmasi('tele')">Konfirmasi via Telegram</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('bukti').addEventListener('change', function(){
+      const fn = this.files[0]?.name || 'Belum ada file dipilih.';
+      document.getElementById('filename').textContent = fn;
+    });
+
+    function konfirmasi(to) {
+      const file = document.getElementById('bukti').files[0];
+      if (!file) {
+        alert('Silakan upload bukti transfer terlebih dahulu!');
+        return;
+      }
+      const msg = encodeURIComponent('Halo Admin, saya sudah transfer. Berikut bukti transfernya.');
+      const wa = 'https://wa.me/6281234567890?text=' + msg;
+      const tele = 'https://t.me/Arsheus?text=' + msg;
+
+      window.open(to === 'wa' ? wa : tele, '_blank');
+    }
+  </script>
+</body>
+</html>

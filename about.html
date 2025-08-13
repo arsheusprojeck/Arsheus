@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio Arsheus</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Cinzel', serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #1a1a1a, #0a0a0a);
+      color: #f8f5e4;
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(to bottom, #000000, #1a1a1a);
+      border-bottom: 2px solid gold;
+    }
+
+    header img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid gold;
+      box-shadow: 0 0 30px gold;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      color: gold;
+      text-shadow: 0 0 15px gold, 0 0 25px #ffef99;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #c9b15c;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 50px 20px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      color: gold;
+      border-left: 5px solid gold;
+      padding-left: 10px;
+      text-shadow: 0 0 5px gold;
+    }
+
+    .skills {
+      margin-top: 20px;
+    }
+
+    .skill {
+      margin-bottom: 20px;
+    }
+
+    .skill-name {
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #ffdf70;
+    }
+
+    .progress {
+      background: #3a3a3a;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 10px;
+      background: linear-gradient(to right, gold, #ffcc00, #ffdf70);
+      width: 0;
+      animation: loadSkill 1.5s forwards;
+    }
+
+    @keyframes loadSkill {
+      from { width: 0; }
+    }
+
+    .contact {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .contact a {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 25px;
+      background: gold;
+      color: black;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 30px;
+      transition: 0.3s;
+      box-shadow: 0 0 10px gold, 0 0 20px #ffef99;
+    }
+
+    .contact a:hover {
+      background: #ffcc00;
+      transform: scale(1.05);
+      box-shadow: 0 0 20px gold, 0 0 30px #ffef99;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #000000;
+      color: #bba94a;
+      margin-top: 50px;
+      border-top: 2px solid gold;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="https://files.catbox.moe/wyhn2p.jpg" alt="Logo Dio Brando / Arsheus">
+    <h1>Arsheus</h1>
+    <p>Web Developer | HTML, CSS & JavaScript Specialist</p>
+  </header>
+
+  <section>
+    <h2>Tentang Saya</h2>
+    <p>
+      Saya adalah seorang pengembang web yang menguasai HTML, CSS, dan JavaScript.
+      Terinspirasi dari estetika elegan dan berkelas, saya menciptakan website dengan desain yang
+      berani namun tetap fungsional. Bagi saya, coding adalah seni — dan setiap baris kode adalah karya.
+    </p>
+
+    <h2>Kemampuan</h2>
+    <div class="skills">
+      <div class="skill">
+        <div class="skill-name">HTML</div>
+        <div class="progress"><div class="progress-bar" style="width: 95%"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">CSS</div>
+        <div class="progress"><div class="progress-bar" style="width: 90%"></div></div>
+      </div>
+      <div class="skill">
+        <div class="skill-name">JavaScript</div>
+        <div class="progress"><div class="progress-bar" style="width: 85%"></div></div>
+      </div>
+    </div>
+
+    <div class="contact">
+  <h2>Kontak</h2>
+  <a href="mailto:dillofficialdefaceinindonesia@gmail.com">Email</a>
+  <a href="https://wa.me//6287886360430" target="_blank">WhatsApp</a>
+  <a href="https://t.me/Arsheus" target="_blank">Telegram</a>
+</div>
+  </section>
+
+  <footer>
+    &copy; 2025 Arsheus ⚡
+  </footer>
+
+</body>
+</html>
